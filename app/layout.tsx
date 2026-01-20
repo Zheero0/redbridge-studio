@@ -9,24 +9,12 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Redbridge Studios | Podcast Studio Booking",
-  description: "Professional podcast recording studio in Redbridge. Book your session today.",
-  generator: "v0.app",
+  description: "Professional podcast recording studio in Redbridge, Bolton. Book your session today.",
   icons: {
     icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
+    
     ],
-    apple: "/apple-icon.png",
+
   },
 }
 
