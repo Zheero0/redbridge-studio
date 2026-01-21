@@ -42,57 +42,62 @@ export function StudioGallery({ images = placeholderImages, title }: StudioGalle
       {title && <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">{title}</h3>}
       
       {/* Main Image */}
-      <Card className="relative mb-3 sm:mb-4 border-0 shadow-lg overflow-hidden">
-        <div className="relative w-full pt-[66.67%]">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="absolute inset-0"
-            >
-              {images[currentIndex]?.src ? (
-                <img
-                  src={images[currentIndex].src || "/placeholder.svg"}
-                  alt={images[currentIndex].alt}
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              ) : (
-                <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-primary/20 via-secondary/10 to-primary/20 flex flex-col items-center justify-center p-4">
-                  <ImageIcon className="h-10 w-10 sm:h-14 sm:w-14 text-primary/40 mb-2 sm:mb-3" />
-                  <p className="text-muted-foreground text-xs sm:text-sm text-center">Image placeholder {currentIndex + 1}</p>
-                  <p className="text-muted-foreground/60 text-[10px] sm:text-xs mt-1 text-center">{images[currentIndex]?.alt}</p>
-                </div>
-              )}
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Navigation Arrows */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background/90 backdrop-blur-sm h-7 w-7 sm:h-9 sm:w-9"
-            onClick={goToPrevious}
-          >
-            <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background/90 backdrop-blur-sm h-7 w-7 sm:h-9 sm:w-9"
-            onClick={goToNext}
-          >
-            <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
-          </Button>
-
-          {/* Image Counter */}
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-background/80 backdrop-blur-sm px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs">
-            {currentIndex + 1} / {images.length}
+<Card className="relative mb-3 sm:mb-4 border-0 shadow-lg overflow-hidden p-0 bg-transparent">
+  <div className="relative w-full aspect-video bg-black">
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={currentIndex}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        className="absolute inset-0"
+      >
+        {images[currentIndex]?.src ? (
+          <img
+            src={images[currentIndex].src}
+            alt={images[currentIndex].alt}
+            className="absolute inset-0 h-full w-full object-cover block"
+          />
+        ) : (
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/10 to-primary/20 flex flex-col items-center justify-center p-4">
+            <ImageIcon className="h-10 w-10 sm:h-14 sm:w-14 text-primary/40 mb-2 sm:mb-3" />
+            <p className="text-muted-foreground text-xs sm:text-sm text-center">
+              Image placeholder {currentIndex + 1}
+            </p>
+            <p className="text-muted-foreground/60 text-[10px] sm:text-xs mt-1 text-center">
+              {images[currentIndex]?.alt}
+            </p>
           </div>
-        </div>
-      </Card>
+        )}
+      </motion.div>
+    </AnimatePresence>
+
+    {/* Navigation Arrows */}
+    <Button
+      variant="ghost"
+      size="icon"
+      className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background/90 backdrop-blur-sm h-7 w-7 sm:h-9 sm:w-9"
+      onClick={goToPrevious}
+    >
+      <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
+    </Button>
+    <Button
+      variant="ghost"
+      size="icon"
+      className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background/90 backdrop-blur-sm h-7 w-7 sm:h-9 sm:w-9"
+      onClick={goToNext}
+    >
+      <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
+    </Button>
+
+    {/* Image Counter */}
+    <div className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-background/80 backdrop-blur-sm px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs">
+      {currentIndex + 1} / {images.length}
+    </div>
+  </div>
+</Card>
+
 
       {/* Thumbnail Strip */}
       <div className="grid grid-cols-5 gap-1 sm:gap-2">

@@ -29,7 +29,7 @@ export const PACKAGES: Package[] = [
     features: [
       "Premium podcast studio hire",
       "High-end microphones & RØDECaster Pro",
-      "1 x Blackmagic 6K camera (static angle)",
+      "2 x Blackmagic 6K camera (static angle)",
       "Professional audio capture & sync",
       "Clean programme video file",
       "Raw audio file",

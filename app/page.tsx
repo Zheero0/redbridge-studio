@@ -49,22 +49,24 @@ export default function HomePage() {
             </motion.div>
 
             {/* Hero Image Carousel */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-12 sm:mt-16 w-full px-4"
-            >
-              <Card className="overflow-hidden border-2">
-                <div className="aspect-video bg-linear-to-br from-primary/20 via-secondary/10 to-primary/20 flex flex-col items-center justify-center">
-                <img
-                  src="/stu.JPG"
-                  alt="Professional podcast studio setup"
-                  className="w-full h-full object-cover"
-                />
-                </div>
-              </Card>
-            </motion.div>
+{/* Hero Image */}
+<motion.div
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.3 }}
+  className="mt-12 sm:mt-16 w-full px-4"
+>
+  <Card className="overflow-hidden p-0">
+    <div className="relative aspect-video w-full">
+      <img
+        src="/stu.JPG"
+        alt="Professional podcast studio setup"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+    </div>
+  </Card>
+</motion.div>
+
           </div>
         </section>
 
