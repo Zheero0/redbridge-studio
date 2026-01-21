@@ -59,7 +59,7 @@ export default function HomePage() {
   <Card className="overflow-hidden p-0">
     <div className="relative aspect-video w-full">
       <img
-        src="/stu.JPG"
+        src="/stuHero.JPG"
         alt="Professional podcast studio setup"
         className="absolute inset-0 h-full w-full object-cover"
       />
