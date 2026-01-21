@@ -63,7 +63,7 @@ export function Footer() {
                   href="mailto:info@redbridgepodcaststudios.com"
                   className="text-background/70 hover:text-background transition-colors"
                 >
-                  info@redbridgepodcaststudios.com
+                  info@redbridgestudios.com
                 </a>
               </li>
               <li>
@@ -71,10 +71,10 @@ export function Footer() {
                   href="tel:+442012345678"
                   className="text-background/70 hover:text-background transition-colors"
                 >
-                  +44 20 1234 5678
+                  01204 525579
                 </a>
               </li>
-              <li>Bolton, BL2 5PB</li>
+              <li>Bolton, BL2 5PH</li>
             </ul>
           </div>
         </div>
