@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
@@ -13,9 +14,23 @@ export function Header() {
     <header className="border-b border-border bg-background/80 backdrop-blur-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          <Link href="/" className="text-xl lg:text-2xl font-bold tracking-tight">
-            Redbridge Studios
-          </Link>
+          {/* Logo */}
+{/* Logo */}
+<Link
+  href="/"
+  aria-label="Go to homepage"
+  className="flex items-center -ml-1"
+>
+  <Image
+    src="/logo.png"
+    alt="Redbridge Studios logo"
+    width={260}
+    height={90}
+    priority
+    className="h-18 w-auto lg:h-18"
+  />
+</Link>
+
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
@@ -39,7 +54,8 @@ export function Header() {
                 <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-[280px] sm:w-[350px] p-8">
+
+            <SheetContent side="left" className="w-[280px] sm:w-[350px] p-8" title="Site navigation">
               <div className="flex flex-col h-full">
                 <nav className="flex flex-col gap-6 flex-1 pt-8">
                   <Link

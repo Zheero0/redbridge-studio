@@ -231,7 +231,7 @@ export default function HomePage() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-start">
                 {/* Studio Gallery */}
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="w-full min-w-0">
-                  <StudioGallery title="Tour Our Studio" />
+                  <StudioGallery title="" />
                 </motion.div>
 
                 {/* Studio Features */}
