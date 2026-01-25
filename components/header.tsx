@@ -15,21 +15,20 @@ export function Header() {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-{/* Logo */}
-<Link
-  href="/"
-  aria-label="Go to homepage"
-  className="flex items-center -ml-1"
->
-  <Image
-    src="/logo.png"
-    alt="Redbridge Studios logo"
-    width={260}
-    height={90}
-    priority
-    className="h-18 w-auto lg:h-18"
-  />
-</Link>
+          <Link
+            href="/"
+            aria-label="Go to homepage"
+            className="flex items-center -ml-1"
+          >
+            <Image
+              src="/logo.png"
+              alt="Redbridge Studios logo"
+              width={260}
+              height={90}
+              priority
+              className="h-18 w-auto lg:h-18"
+            />
+          </Link>
 
 
           {/* Desktop Navigation */}
@@ -40,56 +39,86 @@ export function Header() {
             <Link href="/#packages" className="text-sm font-medium hover:text-primary transition-colors">
               Packages
             </Link>
-            <Link href="/#studio" className="text-sm font-medium hover:text-primary transition-colors">
-              Studio
+            <Link href="/studio" className="text-sm font-medium hover:text-primary transition-colors">
+              Studio Features
             </Link>
             <Link href="/book">
               <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">Book Now</Button>
             </Link>
           </nav>
+          
+      {/* mobile */}
 
-          <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon" aria-label="Toggle menu">
-                <Menu className="h-6 w-6" />
-              </Button>
-            </SheetTrigger>
+      <Sheet open={open} onOpenChange={setOpen}>
+        <SheetTrigger asChild className="md:hidden">
+          <Button variant="ghost" size="icon" aria-label="Toggle menu">
+            <Menu className="h-6 w-6" />
+          </Button>
+        </SheetTrigger>
 
-            <SheetContent side="left" className="w-[280px] sm:w-[350px] p-8" title="Site navigation">
-              <div className="flex flex-col h-full">
-                <nav className="flex flex-col gap-6 flex-1 pt-8">
-                  <Link
-                    href="/#about"
-                    className="text-base font-medium hover:text-primary transition-colors py-2 border-b border-border/50"
-                    onClick={() => setOpen(false)}
+        <SheetContent
+          side="left"
+          className="w-[280px] sm:w-[350px] p-4"
+          title="Site navigation"
+        >
+          <div className="flex flex-col h-full">
+            {/* Logo header */}
+            <div className="flex items-center justify-between border-b border-border/60 pb-4">
+              <Link
+                href="/"
+                aria-label="Go to homepage"
+                className="inline-flex items-center"
+                onClick={() => setOpen(false)}
+              >
+                <Image
+                  src="/logo.png"
+                  alt="Redbridge Studios logo"
+                  width={220}
+                  height={80}
+                  className="h-12 w-auto"
+                  priority={false}
+                />
+              </Link>
+            </div>
+
+            <nav className="flex flex-col gap-4 flex-1 pt-5">
+              <Link
+                href="/#about"
+                className="text-base font-medium hover:text-primary transition-colors py-2"
+                onClick={() => setOpen(false)}
+              >
+                About
+              </Link>
+              <Link
+                href="/#packages"
+                className="text-base font-medium hover:text-primary transition-colors py-2"
+                onClick={() => setOpen(false)}
+              >
+                Packages
+              </Link>
+              <Link
+                href="/studio"
+                className="text-base font-medium hover:text-primary transition-colors py-2"
+                onClick={() => setOpen(false)}
+              >
+                Studio
+              </Link>
+
+              <div className="mt-auto pt-6">
+                <Link href="/book" onClick={() => setOpen(false)}>
+                  <Button
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground w-full"
+                    size="lg"
                   >
-                    About
-                  </Link>
-                  <Link
-                    href="/#packages"
-                    className="text-base font-medium hover:text-primary transition-colors py-2 border-b border-border/50"
-                    onClick={() => setOpen(false)}
-                  >
-                    Packages
-                  </Link>
-                  <Link
-                    href="/#studio"
-                    className="text-base font-medium hover:text-primary transition-colors py-2 border-b border-border/50"
-                    onClick={() => setOpen(false)}
-                  >
-                    Studio
-                  </Link>
-                  <div className="mt-auto pt-6">
-                    <Link href="/book" onClick={() => setOpen(false)}>
-                      <Button className="bg-primary hover:bg-primary/90 text-primary-foreground w-full" size="lg">
-                        Book Your Session
-                      </Button>
-                    </Link>
-                  </div>
-                </nav>
+                    Book Your Session
+                  </Button>
+                </Link>
               </div>
-            </SheetContent>
-          </Sheet>
+            </nav>
+          </div>
+        </SheetContent>
+      </Sheet>
+
         </div>
       </div>
     </header>

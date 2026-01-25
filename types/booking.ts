@@ -40,7 +40,7 @@ export const PACKAGES: Package[] = [
     name: "PRO",
     description: "Multi-Camera Podcast",
     price: 450,
-    duration: "up to 3 hours",
+    duration: "Up to 3 hours",
     badge: "POPULAR",
     features: [
       "Fully rigged premium studio",
@@ -58,7 +58,7 @@ export const PACKAGES: Package[] = [
     name: "BROADCAST",
     description: "Full Production Experience",
     price: 750,
-    duration: "half day (up to 5 hours)",
+    duration: "Half day (up to 5 hours)",
     badge: undefined,
     features: [
       "Full premium studio access",
@@ -77,7 +77,7 @@ export const PACKAGES: Package[] = [
     name: "ULTIMATE",
     description: "TV-Level Full Day Production",
     price: 1000,
-    duration: "full day (up to 8 hours)",
+    duration: "Full day (up to 8 hours)",
     badge: "BEST VALUE",
     features: [
       "FULL DAY studio access (up to 8 hours)",
