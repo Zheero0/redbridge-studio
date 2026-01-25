@@ -101,7 +101,7 @@ export function Header() {
                 className="text-base font-medium hover:text-primary transition-colors py-2"
                 onClick={() => setOpen(false)}
               >
-                Studio
+                Studio Features
               </Link>
 
               <div className="mt-auto pt-6">

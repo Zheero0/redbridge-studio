@@ -46,19 +46,19 @@ const lightingLooks = [
   {
     src: "/stuWarm.JPG",
     alt: "Warm, cinematic look",
-    title: "Warm & cinematic",
+    title: "Warm & Cinematic",
     copy: "Perfect for intimate conversations and story-led podcasts.",
   },
   {
     src: "/stuHero.JPG",
     alt: "Clean, neutral look",
-    title: "Clean & neutral",
+    title: "Clean & Neutral",
     copy: "Bright, flattering lighting for a modern studio feel.",
   },
   {
     src: "/stu5.JPG",
     alt: "Brand colour accent look",
-    title: "Brand colour accents",
+    title: "Brand Colour Accents",
     copy: "Match your brand colours for a consistent look across episodes.",
   },
 ];
