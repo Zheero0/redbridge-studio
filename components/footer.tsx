@@ -8,8 +8,7 @@ export function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Redbridge Studios</h3>
             <p className="text-sm text-background/70 leading-relaxed">
-              Professional podcast recording studio equipped with
-              state-of-the-art audio equipment.
+              Broadcast-quality podcast, interview & live streaming production 
             </p>
           </div>
 
@@ -60,15 +59,15 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-background/70">
               <li>
                 <a
-                  href="mailto:info@redbridgepodcaststudios.com"
+                  href="mailto:hello@redbridgepodcaststudios.com"
                   className="text-background/70 hover:text-background transition-colors"
                 >
-                  info@redbridgestudios.com
+                  hello@redbridgepodcaststudios.com
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+442012345678"
+                  href="tel:+441204 525579"
                   className="text-background/70 hover:text-background transition-colors"
                 >
                   01204 525579
