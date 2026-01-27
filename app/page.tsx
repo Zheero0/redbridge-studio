@@ -425,7 +425,7 @@ export default function HomePage() {
                         ))}
                       </div>
 
-                      <div className="mt-6 pt-5 border-t">
+                      <div className="mt-6 pt-5">
                         <div className="flex items-start gap-3">
                           <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                           <div>
