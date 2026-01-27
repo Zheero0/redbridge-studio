@@ -732,7 +732,7 @@ export default function HomePage() {
               </motion.div>
 
               <Card >
-                <CardContent className="p-4 sm:p-6">
+                <CardContent>
                   <Accordion type="single" collapsible className="w-full">
                     {FAQ_ITEMS.map((item, idx) => (
                       <AccordionItem key={item.q} value={`faq-${idx}`}>
