@@ -35,10 +35,10 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/#studio"
+                  href="/studio-features"
                   className="text-background/70 hover:text-background transition-colors"
                 >
-                  Studio
+                  Studio Features
                 </Link>
               </li>
               <li>

@@ -39,7 +39,7 @@ export function Header() {
             <Link href="/#packages" className="text-sm font-medium hover:text-primary transition-colors">
               Packages
             </Link>
-            <Link href="/studio" className="text-sm font-medium hover:text-primary transition-colors">
+            <Link href="/studio-features" className="text-sm font-medium hover:text-primary transition-colors">
               Studio Features
             </Link>
             <Link href="/book">
@@ -97,7 +97,7 @@ export function Header() {
                 Packages
               </Link>
               <Link
-                href="/studio"
+                href="/studio-features"
                 className="text-base font-medium hover:text-primary transition-colors py-2"
                 onClick={() => setOpen(false)}
               >

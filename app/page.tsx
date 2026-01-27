@@ -12,7 +12,13 @@ import { PACKAGES } from "@/types/booking";
 
 // Social platform icons (simple-icons)
 import type { SimpleIcon } from "simple-icons";
-import { siFacebook, siInstagram, siTiktok, siYoutube, siTwitch } from "simple-icons/icons";
+import {
+  siFacebook,
+  siInstagram,
+  siTiktok,
+  siYoutube,
+  siTwitch,
+} from "simple-icons/icons";
 
 // shadcn accordion
 import {
@@ -61,7 +67,10 @@ const FAQ_ITEMS = [
     q: "Do you provide editing?",
     a: "Yes — editing is included in our Production & Editing option or available as an add-on.",
   },
-  { q: "Can I record audio-only?", a: "Yes, but most clients choose video due to the quality of our setup." },
+  {
+    q: "Can I record audio-only?",
+    a: "Yes, but most clients choose video due to the quality of our setup.",
+  },
   {
     q: "How many guests can you accommodate?",
     a: "Multiple guests and panel discussions are supported — contact us for specifics.",
@@ -72,7 +81,6 @@ const FAQ_ITEMS = [
   },
 ];
 
-// NEW: one source of truth for the full kit list (to avoid repeating elsewhere)
 const STUDIO_KIT = [
   "4 × Blackmagic 6K cinema cameras",
   "ATEM Mini Extreme ISO (live switching + ISO recording)",
@@ -99,15 +107,15 @@ export default function HomePage() {
               transition={{ duration: 0.55 }}
               className="max-w-5xl mx-auto text-center"
             >
-
-
               <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold mb-5 leading-tight text-balance">
-                Broadcast-Quality Podcast & Interview Production Studio in Greater Manchester
+                Broadcast-Quality Podcast & Interview Production Studio in Greater
+                Manchester
               </h1>
 
               <p className="text-lg lg:text-xl text-muted-foreground mb-7 max-w-3xl mx-auto leading-relaxed text-pretty">
-                Cinematic, multi-camera podcast production using Blackmagic 6K cameras — built for creators, brands, and
-                shows that want content that looks like TV, not a basic podcast.
+                Cinematic, multi-camera podcast production using Blackmagic 6K
+                cameras — built for creators, brands, and shows that want content
+                that looks like TV, not a basic podcast.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -119,13 +127,18 @@ export default function HomePage() {
                     Book the Studio
                   </Button>
                 </Link>
-                <Button size="lg" variant="outline" className="text-base w-full sm:w-auto bg-transparent" asChild>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-base w-full sm:w-auto bg-transparent"
+                  asChild
+                >
                   <Link href="#packages">View Packages</Link>
                 </Button>
               </div>
             </motion.div>
 
-            {/* Hero Image */}
+            {/* Hero Video (player controls, same dimensions) */}
             <motion.div
               initial={{ opacity: 0, y: 26 }}
               animate={{ opacity: 1, y: 0 }}
@@ -134,11 +147,15 @@ export default function HomePage() {
             >
               <Card className="overflow-hidden p-0">
                 <div className="relative aspect-video w-full">
-                  <img
-                    src="/stuHero.JPG"
-                    alt="Professional podcast studio setup"
+                  <video
                     className="absolute inset-0 h-full w-full object-cover"
+                    src="/hero2.mp4"
+                    controls
+                    playsInline
+                    preload="metadata"
+                    controlsList="nodownload noplaybackrate"
                   />
+                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/20 via-black/0 to-black/10" />
                 </div>
               </Card>
             </motion.div>
@@ -155,7 +172,9 @@ export default function HomePage() {
               transition={{ duration: 0.55 }}
               className="max-w-5xl mx-auto text-center"
             >
-              <h2 className="text-3xl lg:text-4xl font-bold mb-5">This Isn&apos;t a Podcast Room. It&apos;s a Show.</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold mb-5">
+                This Isn&apos;t a Podcast Room. It&apos;s a Show.
+              </h2>
 
               <h3 className="text-xl text-muted-foreground mb-4 font-semibold">
                 Most podcast studios give you a mic, a camera, and a quiet room.
@@ -163,14 +182,19 @@ export default function HomePage() {
 
               <div className="text-lg text-muted-foreground leading-relaxed mb-10 space-y-4 max-w-4xl mx-auto">
                 <p>
-                  Redbridge Podcast Studios gives you a broadcast-grade production environment designed for high-impact,
-                  long-form podcasts, interviews, documentaries, and branded content.
+                  Redbridge Podcast Studios gives you a broadcast-grade production
+                  environment designed for high-impact, long-form podcasts,
+                  interviews, documentaries, and branded content.
                 </p>
                 <p>
-                  We specialise in high-impact, long-form podcasts, interviews, documentaries, and branded content —
-                  using the same multi-camera workflows found in television and high-end digital productions.
+                  We specialise in high-impact, long-form podcasts, interviews,
+                  documentaries, and branded content — using the same multi-camera
+                  workflows found in television and high-end digital productions.
                 </p>
-                <p>If you want content that holds attention, looks cinematic, and feels premium, you’re in the right place.</p>
+                <p>
+                  If you want content that holds attention, looks cinematic, and
+                  feels premium, you’re in the right place.
+                </p>
               </div>
             </motion.div>
 
@@ -185,12 +209,14 @@ export default function HomePage() {
                 {
                   icon: Headphones,
                   title: "Studio-Grade Audio",
-                  description: "RØDECaster Pro II with premium microphones for crystal-clear, broadcast-ready sound",
+                  description:
+                    "RØDECaster Pro II with premium microphones for crystal-clear, broadcast-ready sound",
                 },
                 {
                   icon: Users,
                   title: "Expert Production Team",
-                  description: "Dedicated technician and producer to handle everything while you focus on your content",
+                  description:
+                    "Dedicated technician and producer to handle everything while you focus on your content",
                 },
               ].map((feature, index) => (
                 <motion.div
@@ -205,8 +231,12 @@ export default function HomePage() {
                       <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-4">
                         <feature.icon className="h-6 w-6 text-primary" />
                       </div>
-                      <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                      <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                      <h3 className="text-xl font-bold mb-2">
+                        {feature.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {feature.description}
+                      </p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -225,11 +255,37 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 className="max-w-4xl mx-auto text-center mb-8 sm:mb-10"
               >
-                <h2 className="text-3xl lg:text-4xl font-bold mb-4">NEW: Built for Live Streaming</h2>
+                <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+                  NEW: Built for Live Streaming
+                </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  In addition to recording, Redbridge Podcast Studios is fully equipped for{" "}
+                  In addition to recording, Redbridge Podcast Studios is fully
+                  equipped for{" "}
                   <span className="font-semibold">professional live streaming</span>.
                 </p>
+
+                {/* DJ Video (exact same player style as hero) */}
+                <motion.div
+                  initial={{ opacity: 0, y: 22 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.55, delay: 0.12 }}
+                  className="mt-8"
+                >
+                  <Card className="overflow-hidden p-0">
+                    <div className="relative aspect-video w-full">
+                      <video
+                        className="absolute inset-0 h-full w-full object-cover"
+                        src="/dj.mp4"
+                        controls
+                        playsInline
+                        preload="metadata"
+                        controlsList="nodownload noplaybackrate"
+                      />
+                      <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/20 via-black/0 to-black/10" />
+                    </div>
+                  </Card>
+                </motion.div>
               </motion.div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
@@ -239,19 +295,25 @@ export default function HomePage() {
                       <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
                         <MonitorPlay className="h-5 w-5 text-primary" />
                       </div>
-                      <h3 className="text-xl font-bold">Stream into up to 8 platforms simultaneously</h3>
+                      <h3 className="text-xl font-bold">
+                        Stream into up to 8 platforms simultaneously
+                      </h3>
                     </div>
 
                     <p className="text-muted-foreground mb-5 leading-relaxed">
-                      We can stream live into <span className="font-semibold">up to 8 platforms simultaneously</span>,
-                      including:
+                      We can stream live into{" "}
+                      <span className="font-semibold">up to 8 platforms simultaneously</span>, including:
                     </p>
 
                     <ul className="space-y-2 text-sm sm:text-base">
                       {STREAM_PLATFORMS.map((p) => (
                         <li key={p.name} className="flex items-center gap-3">
                           <span className="h-8 w-8 rounded-md border bg-background flex items-center justify-center">
-                            <SocialIconSvg icon={p.icon} title={p.name} className="h-4 w-4 text-primary" />
+                            <SocialIconSvg
+                              icon={p.icon}
+                              title={p.name}
+                              className="h-4 w-4 text-primary"
+                            />
                           </span>
                           <span>{p.name}</span>
                         </li>
@@ -291,8 +353,8 @@ export default function HomePage() {
                     </ul>
 
                     <p className="text-muted-foreground leading-relaxed">
-                      Your content can be experienced <span className="font-semibold">live</span> and then repurposed into
-                      high-quality on-demand episodes and clips.
+                      Your content can be experienced <span className="font-semibold">live</span> and then repurposed
+                      into high-quality on-demand episodes and clips.
                     </p>
                   </CardContent>
                 </Card>
@@ -301,8 +363,11 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* STUDIO (Carousel + Features) — moved the full kit list here to avoid repeating */}
-        <section id="studio" className="py-16 sm:py-20 lg:py-24 bg-muted/30 overflow-hidden">
+        {/* STUDIO */}
+        <section
+          id="studio"
+          className="py-16 sm:py-20 lg:py-24 bg-muted/30 overflow-hidden"
+        >
           <div className="container mx-auto px-4 lg:px-8 max-w-full">
             <div className="max-w-6xl mx-auto">
               <motion.div
@@ -311,19 +376,24 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 className="text-center mb-8 sm:mb-10"
               >
-                <p className="text-xs tracking-wide uppercase text-muted-foreground mb-2">STUDIO</p>
-                <h2 className="text-3xl lg:text-4xl font-bold mb-4">A Cinematic Production Space Built for Conversation</h2>
+                <p className="text-xs tracking-wide uppercase text-muted-foreground mb-2">
+                  STUDIO
+                </p>
+                <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+                  A Cinematic Production Space Built for Conversation
+                </h2>
                 <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-                  Redbridge Podcast Studios is designed specifically for depth, emotion, and storytelling.
+                  Redbridge Podcast Studios is designed specifically for depth,
+                  emotion, and storytelling.
                 </p>
                 <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto mt-3">
-                  Our space is acoustically treated, visually controlled, and technically engineered to support long-form
-                  conversations and live broadcasts without fatigue — for both guests and viewers.
+                  Our space is acoustically treated, visually controlled, and
+                  technically engineered to support long-form conversations and
+                  live broadcasts without fatigue — for both guests and viewers.
                 </p>
               </motion.div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-start">
-                {/* Studio Gallery (carousel) */}
                 <motion.div
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -333,8 +403,11 @@ export default function HomePage() {
                   <StudioGallery title="" />
                 </motion.div>
 
-                {/* Studio Features + FULL KIT LIST appended here */}
-                <motion.div initial={{ opacity: 0, x: 16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+                <motion.div
+                  initial={{ opacity: 0, x: 16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                >
                   <Card className="h-full">
                     <CardContent className="p-5 sm:p-6">
                       <h3 className="text-xl font-bold mb-5">Studio Features</h3>
@@ -343,19 +416,21 @@ export default function HomePage() {
                         {STUDIO_KIT.map((item) => (
                           <div key={item} className="flex items-start gap-3">
                             <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                            <p className="text-muted-foreground leading-relaxed">{item}</p>
+                            <p className="text-muted-foreground leading-relaxed">
+                              {item}
+                            </p>
                           </div>
                         ))}
                       </div>
 
-                      {/* Keep the short “comfort” line without repeating the kit list */}
                       <div className="mt-6 pt-5 border-t">
                         <div className="flex items-start gap-3">
                           <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                           <div>
                             <p className="font-medium">Comfortable guest setup</p>
                             <p className="text-sm text-muted-foreground">
-                              Professional yet relaxed environment for great conversations.
+                              Professional yet relaxed environment for great
+                              conversations.
                             </p>
                           </div>
                         </div>
@@ -365,13 +440,15 @@ export default function HomePage() {
                 </motion.div>
               </div>
 
-              {/* Keep these two cards (not repeating the kit list) */}
               <div className="mt-8 sm:mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <Card className="h-full">
                   <CardContent className="p-6 sm:p-8">
-                    <h3 className="text-xl font-bold mb-3">Multi-Camera, Broadcast Workflow</h3>
+                    <h3 className="text-xl font-bold mb-3">
+                      Multi-Camera, Broadcast Workflow
+                    </h3>
                     <p className="text-muted-foreground leading-relaxed mb-5">
-                      Unlike standard podcast studios, we use a true multi-camera broadcast workflow:
+                      Unlike standard podcast studios, we use a true multi-camera
+                      broadcast workflow:
                     </p>
                     <ul className="space-y-2 text-sm sm:text-base">
                       {[
@@ -388,15 +465,20 @@ export default function HomePage() {
                       ))}
                     </ul>
                     <p className="text-muted-foreground leading-relaxed mt-5">
-                      This means more energy, better pacing, and content that feels alive.
+                      This means more energy, better pacing, and content that
+                      feels alive.
                     </p>
                   </CardContent>
                 </Card>
 
                 <Card className="h-full">
                   <CardContent className="p-6 sm:p-8">
-                    <h3 className="text-xl font-bold mb-3">Designed for Long-Form Content</h3>
-                    <p className="text-muted-foreground leading-relaxed mb-5">Our studio is optimised for:</p>
+                    <h3 className="text-xl font-bold mb-3">
+                      Designed for Long-Form Content
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed mb-5">
+                      Our studio is optimised for:
+                    </p>
                     <ul className="space-y-2 text-sm sm:text-base">
                       {[
                         "60–150 minute episodes",
@@ -411,7 +493,9 @@ export default function HomePage() {
                         </li>
                       ))}
                     </ul>
-                    <p className="text-muted-foreground leading-relaxed mt-5">No rushing. No pressure. Just quality.</p>
+                    <p className="text-muted-foreground leading-relaxed mt-5">
+                      No rushing. No pressure. Just quality.
+                    </p>
                   </CardContent>
                 </Card>
               </div>
@@ -429,7 +513,9 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 className="max-w-4xl mx-auto text-center mb-8 sm:mb-10"
               >
-                <h2 className="text-3xl lg:text-4xl font-bold mb-4">Who We Work With</h2>
+                <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+                  Who We Work With
+                </h2>
               </motion.div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
@@ -461,7 +547,8 @@ export default function HomePage() {
               </div>
 
               <p className="text-center text-muted-foreground leading-relaxed mt-8 max-w-3xl mx-auto">
-                If you’re tired of your content looking like everyone else’s — Redbridge was built for you.
+                If you’re tired of your content looking like everyone else’s —
+                Redbridge was built for you.
               </p>
             </div>
           </div>
@@ -476,66 +563,23 @@ export default function HomePage() {
               viewport={{ once: true }}
               className="max-w-5xl mx-auto text-center mb-6"
             >
-              <p className="text-xs tracking-wide uppercase text-muted-foreground mb-2">PACKAGES</p>
-              <h2 className="text-3xl lg:text-4xl font-bold mb-3">Simple, Accessible Pricing</h2>
+              <p className="text-xs tracking-wide uppercase text-muted-foreground mb-2">
+                PACKAGES
+              </p>
+              <h2 className="text-3xl lg:text-4xl font-bold mb-3">
+                Simple, Accessible Pricing
+              </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Our pricing is intentionally positioned to help creators, brands, and agencies get their foot in the door,
-                build long-term relationships, and grow with us.
+                Our pricing is intentionally positioned to help creators, brands,
+                and agencies get their foot in the door, build long-term
+                relationships, and grow with us.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mt-2">
-                While our studio operates at a broadcast-production level, we’ve kept our packages accessible to support
-                repeat bookings, ongoing shows, and long-form projects.
+                While our studio operates at a broadcast-production level, we’ve
+                kept our packages accessible to support repeat bookings, ongoing
+                shows, and long-form projects.
               </p>
             </motion.div>
-
-            {/* <div className="max-w-6xl mx-auto mb-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                {
-                  title: "Studio Hire",
-                  items: [
-                    "Studio hire",
-                    "Professional audio setup",
-                    "Multi-camera recording",
-                    "Clean, controlled lighting",
-                    "Files provided after the session",
-                  ],
-                },
-                {
-                  title: "Studio + Production Support",
-                  items: [
-                    "Full studio hire",
-                    "Multi-camera setup",
-                    "Audio monitoring",
-                    "Production support during recording",
-                    "Optional live streaming setup",
-                  ],
-                },
-                {
-                  title: "Production & Editing",
-                  items: [
-                    "Studio hire",
-                    "Full production support",
-                    "Multi-camera workflow",
-                    "Post-production editing",
-                    "Audio clean-up and visual polish",
-                  ],
-                },
-              ].map((block) => (
-                <Card key={block.title} className="h-full">
-                  <CardContent className="p-6">
-                    <h3 className="font-bold mb-3">{block.title}</h3>
-                    <ul className="space-y-2 text-sm">
-                      {block.items.map((it) => (
-                        <li key={it} className="flex items-start gap-2">
-                          <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                          <span className="text-muted-foreground">{it}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              ))}
-            </div> */}
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8 w-full mb-8">
               {PACKAGES.map((pkg, index) => (
@@ -546,7 +590,11 @@ export default function HomePage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.08 }}
                 >
-                  <Card className={`relative ${pkg.badge ? "border-primary border-2 shadow-lg" : "border-2"} h-full`}>
+                  <Card
+                    className={`relative ${
+                      pkg.badge ? "border-primary border-2 shadow-lg" : "border-2"
+                    } h-full`}
+                  >
                     {pkg.badge && (
                       <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                         <span className="bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">
@@ -556,10 +604,14 @@ export default function HomePage() {
                     )}
                     <CardContent className="p-6">
                       <h3 className="text-xl font-bold mb-1">{pkg.name}</h3>
-                      <p className="text-sm text-muted-foreground mb-3">{pkg.description}</p>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        {pkg.description}
+                      </p>
                       <div className="mb-4">
                         <span className="text-4xl font-bold">£{pkg.price}</span>
-                        <span className="text-muted-foreground ml-2">/ {pkg.duration}</span>
+                        <span className="text-muted-foreground ml-2">
+                          / {pkg.duration}
+                        </span>
                       </div>
                       <ul className="space-y-2 mb-6">
                         {pkg.features.map((feature, i) => (
@@ -572,7 +624,9 @@ export default function HomePage() {
                       <Link href="/book" className="block">
                         <Button
                           className={`w-full ${
-                            pkg.badge ? "bg-primary hover:bg-primary/90 text-primary-foreground" : ""
+                            pkg.badge
+                              ? "bg-primary hover:bg-primary/90 text-primary-foreground"
+                              : ""
                           }`}
                           variant={pkg.badge ? "default" : "outline"}
                         >
@@ -591,7 +645,8 @@ export default function HomePage() {
                   <h3 className="text-xl font-bold mb-3">Why Our Pricing Works</h3>
                   <div className="space-y-4 text-muted-foreground leading-relaxed">
                     <p>
-                      Redbridge Podcast Studios is based in Bolton, on a professional industrial estate — allowing us to offer:
+                      Redbridge Podcast Studios is based in Bolton, on a
+                      professional industrial estate — allowing us to offer:
                     </p>
                     <ul className="space-y-2">
                       {[
@@ -630,15 +685,21 @@ export default function HomePage() {
                 </div>
 
                 <CardContent className="relative p-7 sm:p-10">
-                  <h2 className="text-3xl lg:text-4xl font-bold mb-4">Book Your Session</h2>
+                  <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+                    Book Your Session
+                  </h2>
 
                   <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                    Whether you’re launching a new podcast, planning a live stream, upgrading an existing show, or producing
-                    branded content — we’ll help you choose the right setup.
+                    Whether you’re launching a new podcast, planning a live
+                    stream, upgrading an existing show, or producing branded
+                    content — we’ll help you choose the right setup.
                   </p>
 
                   <Link href="/book">
-                    <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-base">
+                    <Button
+                      size="lg"
+                      className="bg-primary hover:bg-primary/90 text-primary-foreground text-base"
+                    >
                       Book Your Studio Session
                     </Button>
                   </Link>
@@ -648,7 +709,10 @@ export default function HomePage() {
                     <p>Broadcast-quality podcast, interview &amp; live streaming production</p>
                     <p className="mt-3">
                       Email:{" "}
-                      <a className="underline underline-offset-4 hover:text-primary" href="mailto:hello@redbridgepodcaststudios.com">
+                      <a
+                        className="underline underline-offset-4 hover:text-primary"
+                        href="mailto:hello@redbridgepodcaststudios.com"
+                      >
                         hello@redbridgepodcaststudios.com
                       </a>
                     </p>
@@ -670,15 +734,19 @@ export default function HomePage() {
                 className="text-center mb-8"
               >
                 <h2 className="text-3xl lg:text-4xl font-bold mb-3">FAQ</h2>
-                <p className="text-muted-foreground">Quick answers to the most common questions.</p>
+                <p className="text-muted-foreground">
+                  Quick answers to the most common questions.
+                </p>
               </motion.div>
 
-              <Card className="border-2">
+              <Card >
                 <CardContent className="p-4 sm:p-6">
                   <Accordion type="single" collapsible className="w-full">
                     {FAQ_ITEMS.map((item, idx) => (
                       <AccordionItem key={item.q} value={`faq-${idx}`}>
-                        <AccordionTrigger className="text-left">{item.q}</AccordionTrigger>
+                        <AccordionTrigger className="text-left">
+                          {item.q}
+                        </AccordionTrigger>
                         <AccordionContent className="text-muted-foreground leading-relaxed">
                           {item.a}
                         </AccordionContent>
@@ -690,10 +758,14 @@ export default function HomePage() {
 
               <div className="text-center mt-10 text-muted-foreground leading-relaxed">
                 <p className="font-medium text-foreground">Final Note</p>
-                <p className="mt-3">If you’re looking for the cheapest option, we’re probably not the right studio.</p>
+                <p className="mt-3">
+                  If you’re looking for the cheapest option, we’re probably not
+                  the right studio.
+                </p>
                 <p className="mt-2">
-                  If you’re looking for content that looks cinematic, professional, and unforgettable — welcome to
-                  Redbridge Podcast Studios.
+                  If you’re looking for content that looks cinematic,
+                  professional, and unforgettable — welcome to Redbridge Podcast
+                  Studios.
                 </p>
               </div>
             </div>
