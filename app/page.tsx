@@ -76,16 +76,11 @@ const lightingLooks = [
   },
   {
     src: "/stu5.JPG",
-    alt: "Brand colour accent look",
-    title: "Brand Colour Accents",
+    alt: "And many mor colours to fit your Brand",
+    title: "And many mor colours to fit your Brand",
     copy: "Match your brand colours for a consistent look across episodes.",
   },
-    {
-    src: "/stu5.JPG",
-    alt: "Brand colour accent look",
-    title: "Brand Colour Accents",
-    copy: "Match your brand colours for a consistent look across episodes.",
-  },
+
 ];
 
 function CustomiseLightingSection() {
