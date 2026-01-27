@@ -725,7 +725,7 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 className="text-center mb-8"
               >
-                <h2 className="text-3xl lg:text-4xl font-bold mb-3">FAQ</h2>
+                <h2 className="text-3xl lg:text-4xl font-bold mb-3">Frequently Asked Questions</h2>
                 <p className="text-muted-foreground">
                   Quick answers to the most common questions.
                 </p>
