@@ -90,6 +90,7 @@ const STUDIO_KIT = [
   "Multi-platform live streaming capability",
 ];
 
+
 export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -425,18 +426,7 @@ export default function HomePage() {
                         ))}
                       </div>
 
-                      <div className="mt-6 pt-5">
-                        <div className="flex items-start gap-3">
-                          <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                          <div>
-                            <p className="font-medium">Comfortable guest setup</p>
-                            <p className="text-sm text-muted-foreground">
-                              Professional yet relaxed environment for great
-                              conversations.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
+
                     </CardContent>
                   </Card>
                 </motion.div>
