@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Facebook, Instagram, Twitter, Music2 } from "lucide-react";
+import { Facebook, Instagram, Twitter, Music2, Youtube} from "lucide-react";
 
 const SOCIAL_LINKS = [
   {
@@ -21,6 +21,11 @@ const SOCIAL_LINKS = [
     name: "TikTok",
     href: "https://www.tiktok.com/@redbridgepodcast?_r=1&_t=ZN-93PwvL6u9Zb",
     icon: Music2, // lucide doesn't have an official TikTok logo; this is a clean fallback
+  },
+    {
+    name: "YouTube",
+    href: "https://youtube.com/@redbridgepodcaststudios?si=eq-z4VT9S_fYodU_",
+    icon: Youtube,
   },
 ] as const;
 
