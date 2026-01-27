@@ -773,9 +773,9 @@ export default function HomePage() {
                 </p>
               </motion.div>
 
-              <Card >
-                <CardContent>
-                  <Accordion type="single" collapsible className="w-full">
+              <Card className="border-0 shadow-none">
+                <CardContent className="border-0 shadow-none">
+                  <Accordion type="single" collapsible className="w-full shadow-none border-none">
                     {FAQ_ITEMS.map((item, idx) => (
                       <AccordionItem key={item.q} value={`faq-${idx}`}>
                         <AccordionTrigger className="text-left">
