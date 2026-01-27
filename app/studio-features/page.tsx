@@ -369,7 +369,7 @@ export default function StudioPage() {
                 <div className="relative aspect-video w-full">
                   <video
                     className="absolute inset-0 h-full w-full object-cover"
-                    src="/hero2.mp4"
+                    src="/hero.mp4"
                     controls
                     playsInline
                     preload="metadata"
