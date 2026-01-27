@@ -1,12 +1,15 @@
 "use client";
 
+import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Video, Check, Headphones, Users, Zap, MonitorPlay } from "lucide-react";
+import { Video, Check, Headphones, Users, Zap, MonitorPlay , ChevronLeft, ChevronRight,ArrowRight} from "lucide-react";
 import { StudioGallery } from "@/components/studio-gallery";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { PACKAGES } from "@/types/booking";
 
@@ -28,6 +31,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
+
+
 function SocialIconSvg({
   icon,
   className,
@@ -47,6 +52,181 @@ function SocialIconSvg({
     >
       <path d={icon.path} />
     </svg>
+  );
+}
+
+const lightingLooks = [
+  {
+    src: "/stu4.JPG",
+    alt: "Color Selection",
+    title: "Select from any RGB Colour",
+    copy: "Create the perfect vibe with full RGB customisation.",
+  },
+  {
+    src: "/stuWarm.JPG",
+    alt: "Warm, cinematic look",
+    title: "Warm & Cinematic",
+    copy: "Perfect for intimate conversations and story-led podcasts.",
+  },
+  {
+    src: "/stuHero.JPG",
+    alt: "Clean, neutral look",
+    title: "Clean & Neutral",
+    copy: "Bright, flattering lighting for a modern studio feel.",
+  },
+  {
+    src: "/stu5.JPG",
+    alt: "Brand colour accent look",
+    title: "Brand Colour Accents",
+    copy: "Match your brand colours for a consistent look across episodes.",
+  },
+    {
+    src: "/stu5.JPG",
+    alt: "Brand colour accent look",
+    title: "Brand Colour Accents",
+    copy: "Match your brand colours for a consistent look across episodes.",
+  },
+];
+
+function CustomiseLightingSection() {
+  const [idx, setIdx] = useState(0);
+  const current = lightingLooks[idx];
+
+  const goPrev = () =>
+    setIdx((p) => (p - 1 + lightingLooks.length) % lightingLooks.length);
+  const goNext = () => setIdx((p) => (p + 1) % lightingLooks.length);
+
+  return (
+    <section className="py-14 sm:py-18 lg:py-22 bg-muted/30">
+      <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 items-center">
+          {/* Carousel */}
+          <div className="w-full min-w-0">
+            <Card className="relative border-0 shadow-lg overflow-hidden p-0">
+              <div className="relative aspect-video w-full">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={current.src}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="absolute inset-0"
+                  >
+                    <Image
+                      src={current.src}
+                      alt={current.alt}
+                      fill
+                      priority={false}
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                    />
+
+                    {/* Readability overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/0 to-black/10" />
+
+                    {/* Caption */}
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <p className="text-white font-semibold text-base sm:text-lg">
+                        {current.title}
+                      </p>
+                      <p className="text-white/80 text-xs sm:text-sm mt-1">
+                        {current.copy}
+                      </p>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Arrows */}
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="icon"
+                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-background/75 hover:bg-background/90 backdrop-blur-sm"
+                  onClick={goPrev}
+                  aria-label="Previous look"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="icon"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-background/75 hover:bg-background/90 backdrop-blur-sm"
+                  onClick={goNext}
+                  aria-label="Next look"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </Button>
+
+                {/* Dots */}
+                <div className="absolute top-3 left-1/2 -translate-x-1/2 flex gap-2">
+                  {lightingLooks.map((_, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => setIdx(i)}
+                      className={[
+                        "h-2 w-2 rounded-full transition",
+                        i === idx ? "bg-white" : "bg-white/40 hover:bg-white/70",
+                      ].join(" ")}
+                      aria-label={`Go to look ${i + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          {/* Copy */}
+          <div>
+            <p className="text-xs tracking-wide uppercase text-muted-foreground">
+              CUSTOM LIGHTING
+            </p>
+            <h2 className="mt-2 text-2xl sm:text-3xl lg:text-4xl font-bold">
+              Customise your lighting setup with any colours to fit any mood
+            </h2>
+            <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
+              You’re not locked into one “house style”. Choose your colours, set
+              the vibe, and change it whenever you want — from clean neutral
+              lighting to bold RGB accents that match your brand or episode
+              theme.
+            </p>
+
+            <div className="mt-6 grid grid-cols-1 gap-2">
+              {[
+                "Pick any colour or colour combination (RGB)",
+                "Adjust brightness + warmth/coolness on request",
+                "Change lighting per episode or per guest",
+                "Consistent, flattering exposure for all speakers",
+              ].map((b) => (
+                <div key={b} className="flex items-center gap-2 text-sm">
+                  <Check className="h-4 w-4 text-primary" />
+                  <span className="text-muted-foreground">{b}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-7 flex flex-col sm:flex-row gap-3">
+              <Link href="/book">
+                <Button size="lg" className="w-full sm:w-auto">
+                  Book a Session <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+              <Link href="/#packages">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="w-full sm:w-auto bg-transparent"
+                >
+                  View Packages
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -81,14 +261,7 @@ const FAQ_ITEMS = [
   },
 ];
 
-const STUDIO_KIT = [
-  "4 × Blackmagic 6K cinema cameras",
-  "ATEM Mini Extreme ISO (live switching + ISO recording)",
-  "Broadcast-grade microphones & professional audio routing",
-  "Studio-grade cinematic lighting",
-  "Multi-guest & panel configurations",
-  "Multi-platform live streaming capability",
-];
+
 
 
 export default function HomePage() {
@@ -366,134 +539,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* STUDIO */}
-        <section
-          id="studio"
-          className="py-16 sm:py-20 lg:py-24 bg-muted/30 overflow-hidden"
-        >
-          <div className="container mx-auto px-4 lg:px-8 max-w-full">
-            <div className="max-w-6xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                className="text-center mb-8 sm:mb-10"
-              >
-                <p className="text-xs tracking-wide uppercase text-muted-foreground mb-2">
-                  STUDIO
-                </p>
-                <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-                  A Cinematic Production Space Built for Conversation
-                </h2>
-                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-                  Redbridge Podcast Studios is designed specifically for depth,
-                  emotion, and storytelling.
-                </p>
-                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto mt-3">
-                  Our space is acoustically treated, visually controlled, and
-                  technically engineered to support long-form conversations and
-                  live broadcasts without fatigue — for both guests and viewers.
-                </p>
-              </motion.div>
-
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-start">
-                <motion.div
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="w-full min-w-0"
-                >
-                  <StudioGallery title="" />
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: 16 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                >
-                  <Card className="h-full">
-                    <CardContent className="p-5 sm:p-6">
-                      <h3 className="text-xl font-bold mb-5">Studio Features</h3>
-
-                      <div className="space-y-4">
-                        {STUDIO_KIT.map((item) => (
-                          <div key={item} className="flex items-start gap-3">
-                            <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                            <p className="text-muted-foreground leading-relaxed">
-                              {item}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-
-
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              </div>
-
-              <div className="mt-8 sm:mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <Card className="h-full">
-                  <CardContent className="p-6 sm:p-8">
-                    <h3 className="text-xl font-bold mb-3">
-                      Multi-Camera, Broadcast Workflow
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed mb-5">
-                      Unlike standard podcast studios, we use a true multi-camera
-                      broadcast workflow:
-                    </p>
-                    <ul className="space-y-2 text-sm sm:text-base">
-                      {[
-                        "Live multi-camera switching",
-                        "Individual ISO recordings from every camera",
-                        "Clean, broadcast-ready audio tracks",
-                        "Multi-platform live streaming",
-                        "Flexibility to deliver live cuts or fully edited episodes",
-                      ].map((item) => (
-                        <li key={item} className="flex items-start gap-2">
-                          <Check className="h-4 w-4 text-primary shrink-0 mt-1" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <p className="text-muted-foreground leading-relaxed mt-5">
-                      This means more energy, better pacing, and content that
-                      feels alive.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card className="h-full">
-                  <CardContent className="p-6 sm:p-8">
-                    <h3 className="text-xl font-bold mb-3">
-                      Designed for Long-Form Content
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed mb-5">
-                      Our studio is optimised for:
-                    </p>
-                    <ul className="space-y-2 text-sm sm:text-base">
-                      {[
-                        "60–150 minute episodes",
-                        "Deep, emotional interviews",
-                        "Live-streamed podcasts",
-                        "Panel discussions",
-                        "Documentary-style conversations",
-                      ].map((item) => (
-                        <li key={item} className="flex items-start gap-2">
-                          <Check className="h-4 w-4 text-primary shrink-0 mt-1" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <p className="text-muted-foreground leading-relaxed mt-5">
-                      No rushing. No pressure. Just quality.
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </div>
-        </section>
+                {/* CUSTOMISE LIGHTING */}
+        <CustomiseLightingSection />
 
         {/* Who We Work With */}
         <section className="py-16 sm:py-20 lg:py-24">

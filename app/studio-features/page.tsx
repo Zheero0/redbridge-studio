@@ -21,6 +21,8 @@ import {
   Video,
   Zap,
 } from "lucide-react";
+import { StudioGallery } from "@/components/studio-gallery";
+
 
 type Feature = {
   title: string;
@@ -71,6 +73,15 @@ const lightingLooks = [
     title: "Brand Colour Accents",
     copy: "Match your brand colours for a consistent look across episodes.",
   },
+];
+
+const STUDIO_KIT = [
+  "4 × Blackmagic 6K cinema cameras",
+  "ATEM Mini Extreme ISO (live switching + ISO recording)",
+  "Broadcast-grade microphones & professional audio routing",
+  "Studio-grade cinematic lighting",
+  "Multi-guest & panel configurations",
+  "Multi-platform live streaming capability",
 ];
 
 function CustomiseLightingSection() {
@@ -442,9 +453,134 @@ export default function StudioPage() {
             </div>
           </div>
         </section>
+{/* STUDIO FEATURES */}
+        <section
+          id="studio"
+          className="py-16 sm:py-20 lg:py-24 bg-muted/30 overflow-hidden"
+        >
+          <div className="container mx-auto px-4 lg:px-8 max-w-full">
+            <div className="max-w-6xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="text-center mb-8 sm:mb-10"
+              >
+                <p className="text-xs tracking-wide uppercase text-muted-foreground mb-2">
+                  STUDIO
+                </p>
+                <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+                  A Cinematic Production Space Built for Conversation
+                </h2>
+                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto">
+                  Redbridge Podcast Studios is designed specifically for depth,
+                  emotion, and storytelling.
+                </p>
+                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto mt-3">
+                  Our space is acoustically treated, visually controlled, and
+                  technically engineered to support long-form conversations and
+                  live broadcasts without fatigue — for both guests and viewers.
+                </p>
+              </motion.div>
 
-                {/* CUSTOMISE LIGHTING */}
-        <CustomiseLightingSection />
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-start">
+                <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="w-full min-w-0"
+                >
+                  <StudioGallery title="" />
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: 16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                >
+                  <Card className="h-full">
+                    <CardContent className="p-5 sm:p-6">
+                      <h3 className="text-xl font-bold mb-5">Studio Features</h3>
+
+                      <div className="space-y-4">
+                        {STUDIO_KIT.map((item) => (
+                          <div key={item} className="flex items-start gap-3">
+                            <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                            <p className="text-muted-foreground leading-relaxed">
+                              {item}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+
+
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </div>
+
+              <div className="mt-8 sm:mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <Card className="h-full">
+                  <CardContent className="p-6 sm:p-8">
+                    <h3 className="text-xl font-bold mb-3">
+                      Multi-Camera, Broadcast Workflow
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed mb-5">
+                      Unlike standard podcast studios, we use a true multi-camera
+                      broadcast workflow:
+                    </p>
+                    <ul className="space-y-2 text-sm sm:text-base">
+                      {[
+                        "Live multi-camera switching",
+                        "Individual ISO recordings from every camera",
+                        "Clean, broadcast-ready audio tracks",
+                        "Multi-platform live streaming",
+                        "Flexibility to deliver live cuts or fully edited episodes",
+                      ].map((item) => (
+                        <li key={item} className="flex items-start gap-2">
+                          <Check className="h-4 w-4 text-primary shrink-0 mt-1" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="text-muted-foreground leading-relaxed mt-5">
+                      This means more energy, better pacing, and content that
+                      feels alive.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="h-full">
+                  <CardContent className="p-6 sm:p-8">
+                    <h3 className="text-xl font-bold mb-3">
+                      Designed for Long-Form Content
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed mb-5">
+                      Our studio is optimised for:
+                    </p>
+                    <ul className="space-y-2 text-sm sm:text-base">
+                      {[
+                        "60–150 minute episodes",
+                        "Deep, emotional interviews",
+                        "Live-streamed podcasts",
+                        "Panel discussions",
+                        "Documentary-style conversations",
+                      ].map((item) => (
+                        <li key={item} className="flex items-start gap-2">
+                          <Check className="h-4 w-4 text-primary shrink-0 mt-1" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="text-muted-foreground leading-relaxed mt-5">
+                      No rushing. No pressure. Just quality.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* SPOTLIGHTS */}
         <section className="py-14 sm:py-18 lg:py-22 bg-muted/30">
