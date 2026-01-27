@@ -1,4 +1,28 @@
 import Link from "next/link";
+import { Facebook, Instagram, Twitter, Music2 } from "lucide-react";
+
+const SOCIAL_LINKS = [
+  {
+    name: "X",
+    href: "https://x.com/droneboy88?s=21&t=paIAi5HONBGWlxCmPlD9YQ",
+    icon: Twitter,
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/redbridgepodcaststudio?igsh=eHRneGl6bW51OTds&utm_source=qr",
+    icon: Instagram,
+  },
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/share/17uZ9NMCWX/?mibextid=wwXIfr",
+    icon: Facebook,
+  },
+  {
+    name: "TikTok",
+    href: "https://www.tiktok.com/@redbridgepodcast?_r=1&_t=ZN-93PwvL6u9Zb",
+    icon: Music2, // lucide doesn't have an official TikTok logo; this is a clean fallback
+  },
+] as const;
 
 export function Footer() {
   return (
@@ -8,8 +32,27 @@ export function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Redbridge Studios</h3>
             <p className="text-sm text-background/70 leading-relaxed">
-              Broadcast-quality podcast, interview & live streaming production 
+              Broadcast-quality podcast, interview & live streaming production
             </p>
+
+            {/* Social links */}
+            <div className="mt-5 flex items-center gap-3">
+              {SOCIAL_LINKS.map((s) => {
+                const Icon = s.icon;
+                return (
+                  <a
+                    key={s.name}
+                    href={s.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={s.name}
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-background/15 bg-background/5 text-background/80 hover:text-background hover:bg-background/10 transition-colors"
+                  >
+                    <Icon className="h-5 w-5" />
+                  </a>
+                );
+              })}
+            </div>
           </div>
 
           <div>
@@ -17,7 +60,7 @@ export function Footer() {
               Quick Links
             </h4>
             <ul className="space-y-2 text-sm">
-                            <li>
+              <li>
                 <Link
                   href="/studio-features"
                   className="text-background/70 hover:text-background transition-colors"
@@ -41,7 +84,6 @@ export function Footer() {
                   Packages
                 </Link>
               </li>
-
               <li>
                 <Link
                   href="/book"
@@ -68,7 +110,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="tel:+441204 525579"
+                  href="tel:+441204525579"
                   className="text-background/70 hover:text-background transition-colors"
                 >
                   01204 525579

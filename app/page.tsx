@@ -64,21 +64,39 @@ const lightingLooks = [
   },
   {
     src: "/stuWarm.JPG",
-    alt: "Warm, cinematic look",
-    title: "Warm & Cinematic",
-    copy: "Perfect for intimate conversations and story-led podcasts.",
+    alt: "",
+    title: "",
+    copy: "",
   },
   {
     src: "/stuHero.JPG",
-    alt: "Clean, neutral look",
-    title: "Clean & Neutral",
-    copy: "Bright, flattering lighting for a modern studio feel.",
+    alt: "",
+    title: "",
+    copy: "",
   },
   {
+    src: "/stu7.JPG",
+    alt: "",
+    title: "",
+    copy: "",
+  },
+    {
+    src: "/stu3.JPG",
+    alt: "",
+    title: "",
+    copy: "",
+  },
+    {
     src: "/stu5.JPG",
-    alt: "And many mor colours to fit your Brand",
-    title: "And many mor colours to fit your Brand",
-    copy: "Match your brand colours for a consistent look across episodes.",
+    alt: "",
+    title: "",
+    copy: "",
+  },
+    {
+    src: "/stu6.JPG",
+    alt: "",
+    title: "",
+    copy: "",
   },
 
 ];
@@ -176,24 +194,26 @@ function CustomiseLightingSection() {
           {/* Copy */}
           <div>
             <p className="text-xs tracking-wide uppercase text-muted-foreground">
-              CUSTOM LIGHTING
+              LIGHTING CONTROL
             </p>
+
             <h2 className="mt-2 text-2xl sm:text-3xl lg:text-4xl font-bold">
-              Customise your lighting setup with any colours to fit any mood
+              Change the lighting instantly in the app — one tap, any look
             </h2>
+
             <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
-              You’re not locked into one “house style”. Choose your colours, set
-              the vibe, and change it whenever you want — from clean neutral
-              lighting to bold RGB accents that match your brand or episode
-              theme.
+              You don&apos;t need a technician or a setup change. Pick a preset or
+              dial in your own colours directly in the lighting control app, then
+              switch the whole studio vibe immediately — brand colours, warm
+              cinematic, clean neutral, or bold RGB — whenever you want.
             </p>
 
             <div className="mt-6 grid grid-cols-1 gap-2">
               {[
-                "Pick any colour or colour combination (RGB)",
-                "Adjust brightness + warmth/coolness on request",
-                "Change lighting per episode or per guest",
-                "Consistent, flattering exposure for all speakers",
+                "One-tap lighting changes through the app",
+                "Any colour / colour combo (full RGB control)",
+                "Adjust brightness + warmth/coolness instantly",
+                "Save your look and recall it every episode",
               ].map((b) => (
                 <div key={b} className="flex items-center gap-2 text-sm">
                   <Check className="h-4 w-4 text-primary" />
@@ -224,6 +244,8 @@ function CustomiseLightingSection() {
     </section>
   );
 }
+
+
 
 const STREAM_PLATFORMS: Array<{ name: string; icon: SimpleIcon }> = [
   { name: "Facebook", icon: siFacebook },
