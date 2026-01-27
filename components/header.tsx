@@ -33,15 +33,16 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
+                        <Link href="/studio-features" className="text-sm font-medium hover:text-primary transition-colors">
+              Studio Features
+            </Link>
             <Link href="/#about" className="text-sm font-medium hover:text-primary transition-colors">
               About
             </Link>
             <Link href="/#packages" className="text-sm font-medium hover:text-primary transition-colors">
               Packages
             </Link>
-            <Link href="/studio-features" className="text-sm font-medium hover:text-primary transition-colors">
-              Studio Features
-            </Link>
+
             <Link href="/book">
               <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">Book Now</Button>
             </Link>
@@ -82,6 +83,13 @@ export function Header() {
             </div>
 
             <nav className="flex flex-col gap-4 flex-1 pt-5">
+                            <Link
+                href="/studio-features"
+                className="text-base font-medium hover:text-primary transition-colors py-2"
+                onClick={() => setOpen(false)}
+              >
+                Studio Features
+              </Link>
               <Link
                 href="/#about"
                 className="text-base font-medium hover:text-primary transition-colors py-2"
@@ -95,13 +103,6 @@ export function Header() {
                 onClick={() => setOpen(false)}
               >
                 Packages
-              </Link>
-              <Link
-                href="/studio-features"
-                className="text-base font-medium hover:text-primary transition-colors py-2"
-                onClick={() => setOpen(false)}
-              >
-                Studio Features
               </Link>
 
               <div className="mt-auto pt-6">

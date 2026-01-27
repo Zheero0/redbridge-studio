@@ -17,6 +17,14 @@ export function Footer() {
               Quick Links
             </h4>
             <ul className="space-y-2 text-sm">
+                            <li>
+                <Link
+                  href="/studio-features"
+                  className="text-background/70 hover:text-background transition-colors"
+                >
+                  Studio Features
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/#about"
@@ -33,14 +41,7 @@ export function Footer() {
                   Packages
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/studio-features"
-                  className="text-background/70 hover:text-background transition-colors"
-                >
-                  Studio Features
-                </Link>
-              </li>
+
               <li>
                 <Link
                   href="/book"
