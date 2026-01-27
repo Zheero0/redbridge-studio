@@ -370,6 +370,7 @@ export default function StudioPage() {
                   <video
                     className="absolute inset-0 h-full w-full object-cover"
                     src="/hero.mp4"
+                    poster="/thumbnail2.jpg"
                     controls
                     playsInline
                     preload="metadata"

@@ -151,6 +151,7 @@ export default function HomePage() {
                     className="absolute inset-0 h-full w-full object-cover"
                     src="/hero2.mp4"
                     controls
+                    poster="/thumbnail1.jpg"
                     playsInline
                     preload="metadata"
                     controlsList="nodownload noplaybackrate"
@@ -278,6 +279,7 @@ export default function HomePage() {
                         className="absolute inset-0 h-full w-full object-cover"
                         src="/dj.mp4"
                         controls
+                        poster="/thumbnail3.jpg"
                         playsInline
                         preload="metadata"
                         controlsList="nodownload noplaybackrate"
