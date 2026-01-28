@@ -437,7 +437,6 @@ function IntegratedMultimediaScreenSection() {
               </div>
 
               <div className="mt-4 text-sm text-muted-foreground">
-                <p className="font-medium text-foreground">One-liner</p>
                 <p className="mt-1">One studio. In-person and remote. Seamlessly connected.</p>
               </div>
             </div>
