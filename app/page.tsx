@@ -105,12 +105,19 @@ const lightingLooks = [
     title: "Select from any RGB Colour",
     copy: "Create the perfect vibe with full RGB customisation.",
   },
-  { src: "/stuWarm.JPG", alt: "Warm look", title: "Warm & Cinematic", copy: "Perfect for intimate conversations." },
-  { src: "/stuHero.JPG", alt: "Clean look", title: "Clean & Professional", copy: "Modern, bright, flattering light." },
-  { src: "/stu7.JPG", alt: "Accent look", title: "Bold Accent Lighting", copy: "Add contrast and atmosphere instantly." },
-  { src: "/stu3.JPG", alt: "Studio look", title: "Dial Your Exact Mood", copy: "Any look, any session, in seconds." },
-  { src: "/stu5.JPG", alt: "Brand colour look", title: "Match Brand Colours", copy: "Keep visuals consistent across episodes." },
-  { src: "/stu6.JPG", alt: "Custom look", title: "Fully Customisable", copy: "No presets. No limits. Total control." },
+  { src: "/stuWarm.JPG", alt: "", title: "  ", copy: "   " },
+  { src: "/stuHero.JPG", alt: " ", title: "  ", copy: "" },
+  { src: "/stu7.JPG", alt: " ", title: "  ", copy: "    " },
+  { src: "/stu3.JPG", alt: " ", title: "   ", copy: " " },
+  { src: "/stu5.JPG", alt: "  ", title: "  ", copy: "    " },
+  { src: "/stu6.JPG", alt: " ", title: " ", copy: "" },
+  { src: "/stu8.JPG", alt: " ", title: " ", copy: "" },
+  { src: "/stu9.JPG", alt: " ", title: " ", copy: "" },
+  { src: "/stu10.JPG", alt: " ", title: " ", copy: "" },
+  { src: "/stu11.JPG", alt: " ", title: " ", copy: "" },
+  { src: "/stu12.JPG", alt: " ", title: " ", copy: "" },
+  { src: "/stu13.JPG", alt: " ", title: " ", copy: "" },
+  { src: "/stu14.JPG", alt: " ", title: " ", copy: "" },
 ];
 
 function CustomiseLightingSection() {
@@ -317,6 +324,7 @@ function IntegratedMultimediaScreenSection() {
                   src="/equipment.mp4"
                   controls
                   playsInline
+                  poster="/promote.jpg"
                   preload="metadata"
                   controlsList="nodownload noplaybackrate"
                 />
@@ -603,7 +611,7 @@ export default function HomePage() {
         {/* NEW: Integrated Multimedia Screen (equipment.mp4) */}
         <IntegratedMultimediaScreenSection />
 
-        
+
         {/* NEW: Built for Live Streaming */}
         <section className="py-16 sm:py-20 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
