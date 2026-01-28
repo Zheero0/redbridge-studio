@@ -635,7 +635,7 @@ export default function HomePage() {
                 className="max-w-4xl mx-auto text-center mb-8 sm:mb-10"
               >
                 <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-                  NEW: Built for Live Streaming
+                 Built for Live Streaming
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   In addition to recording, Redbridge Podcast Studios is fully
