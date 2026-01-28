@@ -878,6 +878,71 @@ export default function HomePage() {
           </div>
         </section>
       </main>
+{/* CONTACT / BOOKING */}
+<section className="py-16 sm:py-20 lg:py-24">
+  <div className="container mx-auto px-4 lg:px-8">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.98 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      className="max-w-4xl mx-auto text-center"
+    >
+      <Card className="overflow-hidden relative border-0">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#7D6BF5] via-[#E04C84] to-[#7D6BF5] p-[2px] rounded-lg">
+          <div className="h-full w-full bg-background rounded-lg" />
+        </div>
+
+        <CardContent className="relative p-7 sm:p-10">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+            Book Your Session
+          </h2>
+
+          <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+            Whether you’re launching a new podcast, planning a live stream,
+            upgrading an existing show, or producing branded content — we’ll help
+            you choose the right setup.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link href="/book">
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground text-base w-full sm:w-auto"
+              >
+                Book the Studio <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+
+            <Button
+              size="lg"
+              variant="outline"
+              className="text-base w-full sm:w-auto bg-transparent"
+              asChild
+            >
+              <a href="mailto:hello@redbridgepodcaststudios.com">
+                Email Us
+              </a>
+            </Button>
+          </div>
+
+          <div className="mt-6 text-muted-foreground leading-relaxed">
+            <p>Bolton / Greater Manchester</p>
+            <p>Broadcast-quality podcast, interview &amp; live streaming production</p>
+            <p className="mt-3">
+              Email:{" "}
+              <a
+                className="underline underline-offset-4 hover:text-primary"
+                href="mailto:hello@redbridgepodcaststudios.com"
+              >
+                hello@redbridgepodcaststudios.com
+              </a>
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+    </motion.div>
+  </div>
+</section>
 
       <Footer />
     </div>
