@@ -522,102 +522,100 @@ export default function HomePage() {
           </div>
         </section>
 
-          {/* About */}
-          <section id="about" className="py-16 sm:py-20 lg:py-24 bg-muted/30">
-            <div className="container mx-auto px-4 lg:px-8">
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.55 }}
-                className="max-w-5xl mx-auto text-center"
-              >
-                <h2 className="text-3xl lg:text-4xl font-bold mb-5">
-                  This Isn&apos;t a Podcast Room. It&apos;s a Show.
-                </h2>
+{/* About */}
+<section id="about" className="py-16 sm:py-20 lg:py-24 bg-muted/30">
+  <div className="container mx-auto px-4 lg:px-8">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.55 }}
+      className="max-w-5xl mx-auto text-center"
+    >
+      <h2 className="text-3xl lg:text-4xl font-bold mb-5">
+        This Isn&apos;t a Podcast Room. It&apos;s a Show.
+      </h2>
 
-                <h3 className="text-xl text-muted-foreground mb-4 font-semibold">
-                  Most podcast studios give you a mic, a camera, and a quiet room.
-                </h3>
+      <h3 className="text-xl text-muted-foreground mb-4 font-semibold">
+        Most podcast studios give you a mic, a camera, and a quiet room.
+      </h3>
 
-                <div className="text-lg text-muted-foreground leading-relaxed mb-10 space-y-4 max-w-4xl mx-auto">
-                  <p>
-                    Redbridge Podcast Studios gives you a broadcast-grade production
-                    environment designed for high-impact, long-form podcasts,
-                    interviews, documentaries, and branded content.
-                  </p>
-                  <p>
-                    We specialise in high-impact, long-form podcasts, interviews,
-                    documentaries, and branded content — using the same multi-camera
-                    workflows found in television and high-end digital productions.
-                  </p>
-                  <p>
-                    If you want content that holds attention, looks cinematic, and
-                    feels premium, you’re in the right place.
-                  </p>
-                </div>
-              </motion.div>
+      <div className="text-lg text-muted-foreground leading-relaxed mb-10 space-y-4 max-w-4xl mx-auto">
+        <p>
+          Redbridge Podcast Studios gives you a broadcast-grade production
+          environment designed for high-impact, long-form podcasts, interviews,
+          documentaries, and branded content.
+        </p>
+        <p>
+          We specialise in high-impact, long-form podcasts, interviews,
+          documentaries, and branded content — using the same multi-camera
+          workflows found in television and high-end digital productions.
+        </p>
+        <p>
+          If you want content that holds attention, looks cinematic, and feels
+          premium, you’re in the right place.
+        </p>
+      </div>
+    </motion.div>
 
-              <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
-                {[
-                  {
-                    title: "Cinematic Video",
-                    description:
-                      "Up to 4 Blackmagic 6K cameras with live switching, ISO recording, and color-graded output",
-                    imageSrc: "/about-video.jpg", // <- replace with your real image
-                    imageAlt: "Blackmagic 6K cameras and studio camera setup",
-                  },
-                  {
-                    title: "Studio-Grade Audio",
-                    description:
-                      "RØDECaster Pro II with premium microphones for crystal-clear, broadcast-ready sound",
-                    imageSrc: "/about-audio.jpg", // <- replace with your real image
-                    imageAlt: "RØDECaster Pro II and podcast microphones",
-                  },
-                  {
-                    title: "Expert Production Team",
-                    description:
-                      "Dedicated technician and producer to handle everything while you focus on your content",
-                    imageSrc: "/about-team.jpg", // <- replace with your real image
-                    imageAlt: "Producer/technician working in the studio",
-                  },
-                ].map((feature, index) => (
-                  <motion.div
-                    key={feature.title}
-                    initial={{ opacity: 0, y: 14 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.08 }}
-                  >
-                    <Card className="hover:border-primary transition-colors h-full overflow-hidden">
-                      {/* Image */}
-                    {/* Image */}
-                    <div className="relative w-full aspect-video overflow-hidden">
-                      <Image
-                        src={feature.imageSrc}
-                        alt={feature.imageAlt}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        priority={false}
-                        className="object-cover object-[center_35%] scale-[1.03]"
-                      />
-                      <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/35 via-black/0 to-black/10" />
-                    </div>
+    <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+      {[
+        {
+          title: "Cinematic Video",
+          description:
+            "Up to 4 Blackmagic 6K cameras with live switching, ISO recording, and color-graded output",
+          imageSrc: "/about-video.jpg",
+          imageAlt: "Blackmagic 6K cameras and studio camera setup",
+        },
+        {
+          title: "Studio-Grade Audio",
+          description:
+            "RØDECaster Pro II with premium microphones for crystal-clear, broadcast-ready sound",
+          imageSrc: "/about-audio.jpg",
+          imageAlt: "RØDECaster Pro II and podcast microphones",
+        },
+        {
+          title: "Expert Production Team",
+          description:
+            "Dedicated technician and producer to handle everything while you focus on your content",
+          imageSrc: "/about-team.jpg",
+          imageAlt: "Producer/technician working in the studio",
+        },
+      ].map((feature, index) => (
+        <motion.div
+          key={feature.title}
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: index * 0.08 }}
+          className="overflow-hidden rounded-xl"
+        >
+          {/* Image */}
+          <div className="relative w-full aspect-video overflow-hidden rounded-xl">
+            <Image
+              src={feature.imageSrc}
+              alt={feature.imageAlt}
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              priority={false}
+              // remove any custom crop/scale so there's no "pt"/top padding vibe
+              className="object-cover"
+            />
+            <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/35 via-black/0 to-black/10" />
+          </div>
 
-
-                      {/* Text */}
-                      <CardContent className="p-6 text-center">
-                        <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                        <p className="text-muted-foreground leading-relaxed">
-                          {feature.description}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </section>
+          {/* Text (no Card / no border / no hover) */}
+          <div className="pt-5 text-center">
+            <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
+            <p className="text-muted-foreground leading-relaxed mb-2">
+              {feature.description}
+            </p>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
 
 
 
