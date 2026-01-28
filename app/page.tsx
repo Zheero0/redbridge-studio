@@ -1,16 +1,26 @@
 "use client";
 
+import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Video, Check, Headphones, Users, Zap, MonitorPlay , ChevronLeft, ChevronRight,ArrowRight} from "lucide-react";
-import { StudioGallery } from "@/components/studio-gallery";
-import Link from "next/link";
-import Image from "next/image";
-import { motion } from "framer-motion";
+import {
+  Video,
+  Check,
+  Headphones,
+  Users,
+  Zap,
+  MonitorPlay,
+  ChevronLeft,
+  ChevronRight,
+  ArrowRight,
+} from "lucide-react";
+
 import { PACKAGES } from "@/types/booking";
 
 // Social platform icons (simple-icons)
@@ -31,7 +41,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-
+/* ----------------------------- Helpers ----------------------------- */
 
 function SocialIconSvg({
   icon,
@@ -55,6 +65,39 @@ function SocialIconSvg({
   );
 }
 
+const STREAM_PLATFORMS: Array<{ name: string; icon: SimpleIcon }> = [
+  { name: "Facebook", icon: siFacebook },
+  { name: "Instagram", icon: siInstagram },
+  { name: "TikTok", icon: siTiktok },
+  { name: "YouTube", icon: siYoutube },
+  { name: "Twitch", icon: siTwitch },
+];
+
+const FAQ_ITEMS = [
+  {
+    q: "Do you provide live streaming?",
+    a: "Yes. We can stream live to up to 8 platforms simultaneously including Facebook, Instagram, TikTok, YouTube, Twitch and more.",
+  },
+  {
+    q: "Do you provide editing?",
+    a: "Yes — editing is included in our Production & Editing option or available as an add-on.",
+  },
+  {
+    q: "Can I record audio-only?",
+    a: "Yes, but most clients choose video due to the quality of our setup.",
+  },
+  {
+    q: "How many guests can you accommodate?",
+    a: "Multiple guests and panel discussions are supported — contact us for specifics.",
+  },
+  {
+    q: "Is help available during the session?",
+    a: "Yes. Production support is included in Studio + Production Support and Production & Editing packages.",
+  },
+];
+
+/* ----------------------------- Lighting ---------------------------- */
+
 const lightingLooks = [
   {
     src: "/stu4.JPG",
@@ -62,43 +105,12 @@ const lightingLooks = [
     title: "Select from any RGB Colour",
     copy: "Create the perfect vibe with full RGB customisation.",
   },
-  {
-    src: "/stuWarm.JPG",
-    alt: "",
-    title: "",
-    copy: "",
-  },
-  {
-    src: "/stuHero.JPG",
-    alt: "",
-    title: "",
-    copy: "",
-  },
-  {
-    src: "/stu7.JPG",
-    alt: "",
-    title: "",
-    copy: "",
-  },
-    {
-    src: "/stu3.JPG",
-    alt: "",
-    title: "",
-    copy: "",
-  },
-    {
-    src: "/stu5.JPG",
-    alt: "",
-    title: "",
-    copy: "",
-  },
-    {
-    src: "/stu6.JPG",
-    alt: "",
-    title: "",
-    copy: "",
-  },
-
+  { src: "/stuWarm.JPG", alt: "Warm look", title: "Warm & Cinematic", copy: "Perfect for intimate conversations." },
+  { src: "/stuHero.JPG", alt: "Clean look", title: "Clean & Professional", copy: "Modern, bright, flattering light." },
+  { src: "/stu7.JPG", alt: "Accent look", title: "Bold Accent Lighting", copy: "Add contrast and atmosphere instantly." },
+  { src: "/stu3.JPG", alt: "Studio look", title: "Dial Your Exact Mood", copy: "Any look, any session, in seconds." },
+  { src: "/stu5.JPG", alt: "Brand colour look", title: "Match Brand Colours", copy: "Keep visuals consistent across episodes." },
+  { src: "/stu6.JPG", alt: "Custom look", title: "Fully Customisable", copy: "No presets. No limits. Total control." },
 ];
 
 function CustomiseLightingSection() {
@@ -135,10 +147,8 @@ function CustomiseLightingSection() {
                       sizes="(max-width: 1024px) 100vw, 50vw"
                     />
 
-                    {/* Readability overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/0 to-black/10" />
 
-                    {/* Caption */}
                     <div className="absolute bottom-4 left-4 right-4">
                       <p className="text-white font-semibold text-base sm:text-lg">
                         {current.title}
@@ -194,32 +204,48 @@ function CustomiseLightingSection() {
           {/* Copy */}
           <div>
             <p className="text-xs tracking-wide uppercase text-muted-foreground">
-              LIGHTING CONTROL
+              FULLY CUSTOMISABLE STUDIO LIGHTING
             </p>
 
             <h2 className="mt-2 text-2xl sm:text-3xl lg:text-4xl font-bold">
-              Change the lighting instantly in the app — one tap, any look
+              Set the mood in seconds — change lighting instantly in the app
             </h2>
 
             <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
-              You don&apos;t need a technician or a setup change. Pick a preset or
-              dial in your own colours directly in the lighting control app, then
-              switch the whole studio vibe immediately — brand colours, warm
-              cinematic, clean neutral, or bold RGB — whenever you want.
+              At Redbridge Podcast Studios, lighting isn’t fixed — it’s fully customisable.
+              Using an intuitive app, the entire studio lighting system can be adjusted instantly from the touch of a finger.
+              Use a full colour-palette slider to dial in the exact look you want — from warm and intimate, to bold and dramatic,
+              to clean and professional.
+            </p>
+
+            <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
+              The side light bars are also fully adjustable, giving you complete control over accent colours, contrast, and atmosphere.
+              Each episode, guest, or brand can have its own unique visual identity — without changing the studio setup.
             </p>
 
             <div className="mt-6 grid grid-cols-1 gap-2">
               {[
-                "One-tap lighting changes through the app",
-                "Any colour / colour combo (full RGB control)",
-                "Adjust brightness + warmth/coolness instantly",
-                "Save your look and recall it every episode",
+                "Instant lighting changes with a tap in the app",
+                "Full RGB colour control (no presets, no limits)",
+                "Adjust brightness and accents in seconds",
+                "Match your brand colours or episode vibe",
               ].map((b) => (
                 <div key={b} className="flex items-center gap-2 text-sm">
                   <Check className="h-4 w-4 text-primary" />
                   <span className="text-muted-foreground">{b}</span>
                 </div>
               ))}
+            </div>
+
+            <div className="mt-7 rounded-lg border bg-background/60 backdrop-blur p-4">
+              <p className="text-sm font-semibold">Why this matters</p>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                Lighting sets the emotional tone of a conversation. With full control over colour, brightness, and accents,
+                you can keep visuals fresh across long-running shows and make clips stand out on social media.
+              </p>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                <span className="font-medium text-foreground">No presets. No limitations.</span> Just complete creative control.
+              </p>
             </div>
 
             <div className="mt-7 flex flex-col sm:flex-row gap-3">
@@ -245,41 +271,176 @@ function CustomiseLightingSection() {
   );
 }
 
+/* -------------------- NEW: Multimedia Screen Section -------------------- */
 
+function IntegratedMultimediaScreenSection() {
+  const bullets = [
+    "Bring remote guests into the studio via Zoom and other platforms",
+    "Display videos, images, websites, or documents during interviews",
+    "React to content live on camera",
+    "Support hybrid podcasts with in-studio + remote participants",
+    "Enhance live streams with on-screen visuals and references",
+  ];
 
-const STREAM_PLATFORMS: Array<{ name: string; icon: SimpleIcon }> = [
-  { name: "Facebook", icon: siFacebook },
-  { name: "Instagram", icon: siInstagram },
-  { name: "TikTok", icon: siTiktok },
-  { name: "YouTube", icon: siYoutube },
-  { name: "Twitch", icon: siTwitch },
-];
+  const whyPoints = [
+    "Interview guests from anywhere in the world as if they’re in the studio",
+    "Seamlessly mix in-person and remote conversations",
+    "Reference content live without breaking the flow",
+    "Add visual storytelling to podcasts and live streams",
+    "Create more engaging clips for social media",
+  ];
 
-const FAQ_ITEMS = [
-  {
-    q: "Do you provide live streaming?",
-    a: "Yes. We can stream live to up to 8 platforms simultaneously including Facebook, Instagram, TikTok, YouTube, Twitch and more.",
-  },
-  {
-    q: "Do you provide editing?",
-    a: "Yes — editing is included in our Production & Editing option or available as an add-on.",
-  },
-  {
-    q: "Can I record audio-only?",
-    a: "Yes, but most clients choose video due to the quality of our setup.",
-  },
-  {
-    q: "How many guests can you accommodate?",
-    a: "Multiple guests and panel discussions are supported — contact us for specifics.",
-  },
-  {
-    q: "Is help available during the session?",
-    a: "Yes. Production support is included in Studio + Production Support and Production & Editing packages.",
-  },
-];
+  const idealFor = [
+    "Podcasts with international guests",
+    "Hybrid shows",
+    "Panel discussions",
+    "Brand interviews and product walkthroughs",
+    "Live-streamed reactions and breakdowns",
+  ];
 
+  return (
+    <section className="py-14 sm:py-18 lg:py-22 bg-muted/30">
+      <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 items-center">
+          {/* Media */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45 }}
+            className="w-full min-w-0"
+          >
+            <Card className="overflow-hidden border-0 shadow-lg p-0">
+              <div className="relative aspect-video w-full">
+                <video
+                  className="absolute inset-0 h-full w-full object-cover"
+                  src="/equipment.mp4"
+                  controls
+                  playsInline
+                  preload="metadata"
+                  controlsList="nodownload noplaybackrate"
+                />
+                <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/20 via-black/0 to-black/10" />
+              </div>
+            </Card>
 
+            <div className="mt-4 flex flex-wrap gap-2">
+              {[
+                { icon: MonitorPlay, label: "On-screen visuals" },
+                { icon: Users, label: "Remote guests" },
+                { icon: Zap, label: "Live reactions" },
+              ].map((t, i) => (
+                <div
+                  key={i}
+                  className="inline-flex items-center gap-2 rounded-full border bg-background/70 backdrop-blur px-3 py-1.5 text-xs sm:text-sm"
+                >
+                  <t.icon className="h-4 w-4 text-primary" />
+                  <span className="text-foreground/90">{t.label}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
 
+          {/* Copy */}
+          <motion.div
+            initial={{ opacity: 0, x: 16 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45 }}
+          >
+            <p className="text-xs tracking-wide uppercase text-muted-foreground">
+              INTEGRATED MULTIMEDIA SCREEN
+            </p>
+
+            <h2 className="mt-2 text-2xl sm:text-3xl lg:text-4xl font-bold">
+              Bring the world into the room
+            </h2>
+
+            <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
+              Redbridge Podcast Studios features a fully integrated multimedia screen,
+              giving you powerful creative and production flexibility during your sessions.
+              This allows conversations to go beyond just talking — adding context, interaction,
+              and depth in real time.
+            </p>
+
+            <div className="mt-6 grid grid-cols-1 gap-2">
+              {bullets.map((b) => (
+                <div key={b} className="flex items-start gap-2 text-sm">
+                  <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                  <span className="text-muted-foreground">{b}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <Card className="border bg-background/60">
+                <CardContent className="p-4">
+                  <p className="text-sm font-semibold">Why this changes the game</p>
+                  <div className="mt-3 grid grid-cols-1 gap-2">
+                    {whyPoints.slice(0, 3).map((p) => (
+                      <div key={p} className="flex items-start gap-2 text-sm">
+                        <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                        <span className="text-muted-foreground">{p}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border bg-background/60">
+                <CardContent className="p-4">
+                  <p className="text-sm font-semibold">Ideal for</p>
+                  <div className="mt-3 grid grid-cols-1 gap-2">
+                    {idealFor.slice(0, 3).map((p) => (
+                      <div key={p} className="flex items-start gap-2 text-sm">
+                        <div className="h-5 w-5 flex items-center justify-center shrink-0">
+                          <Check className="h-4 w-4 text-primary" />
+                        </div>
+                        <span className="text-muted-foreground">{p}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="mt-6 rounded-lg border bg-background/60 backdrop-blur p-4">
+              <p className="text-sm font-semibold">Perfect for live streaming & hybrid shows</p>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                Bring in remote guests, live audience call-ins, visual prompts, and real-time reactions —
+                all while maintaining a cinematic, broadcast-quality look.
+              </p>
+
+              <div className="mt-4 flex flex-col sm:flex-row gap-3">
+                <Link href="/book">
+                  <Button size="lg" className="w-full sm:w-auto">
+                    Book a Session <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+                <Link href="/#packages">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="w-full sm:w-auto bg-transparent"
+                  >
+                    View Packages
+                  </Button>
+                </Link>
+              </div>
+
+              <div className="mt-4 text-sm text-muted-foreground">
+                <p className="font-medium text-foreground">One-liner</p>
+                <p className="mt-1">One studio. In-person and remote. Seamlessly connected.</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ----------------------------- Page ------------------------------ */
 
 export default function HomePage() {
   return (
@@ -329,7 +490,7 @@ export default function HomePage() {
               </div>
             </motion.div>
 
-            {/* Hero Video (player controls, same dimensions) */}
+            {/* Hero Video */}
             <motion.div
               initial={{ opacity: 0, y: 26 }}
               animate={{ opacity: 1, y: 0 }}
@@ -437,6 +598,12 @@ export default function HomePage() {
           </div>
         </section>
 
+
+
+        {/* NEW: Integrated Multimedia Screen (equipment.mp4) */}
+        <IntegratedMultimediaScreenSection />
+
+        
         {/* NEW: Built for Live Streaming */}
         <section className="py-16 sm:py-20 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
@@ -468,7 +635,7 @@ export default function HomePage() {
                     <div className="relative aspect-video w-full">
                       <video
                         className="absolute inset-0 h-full w-full object-cover"
-                        src="/dj.mp4"
+                        src="/dj1.mp4"
                         controls
                         poster="/thumbnail3.jpg"
                         playsInline
@@ -495,7 +662,10 @@ export default function HomePage() {
 
                     <p className="text-muted-foreground mb-5 leading-relaxed">
                       We can stream live into{" "}
-                      <span className="font-semibold">up to 8 platforms simultaneously</span>, including:
+                      <span className="font-semibold">
+                        up to 8 platforms simultaneously
+                      </span>
+                      , including:
                     </p>
 
                     <ul className="space-y-2 text-sm sm:text-base">
@@ -546,8 +716,9 @@ export default function HomePage() {
                     </ul>
 
                     <p className="text-muted-foreground leading-relaxed">
-                      Your content can be experienced <span className="font-semibold">live</span> and then repurposed
-                      into high-quality on-demand episodes and clips.
+                      Your content can be experienced{" "}
+                      <span className="font-semibold">live</span> and then
+                      repurposed into high-quality on-demand episodes and clips.
                     </p>
                   </CardContent>
                 </Card>
@@ -556,59 +727,9 @@ export default function HomePage() {
           </div>
         </section>
 
-                {/* CUSTOMISE LIGHTING */}
+
+        {/* Lighting */}
         <CustomiseLightingSection />
-
-        {/* Who We Work With */}
-        <section className="py-16 sm:py-20 lg:py-24">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="max-w-6xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                className="max-w-4xl mx-auto text-center mb-8 sm:mb-10"
-              >
-                <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-                  Who We Work With
-                </h2>
-              </motion.div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-                {[
-                  "Podcasters ready to level up",
-                  "YouTubers & long-form interviewers",
-                  "Live streamers & digital creators",
-                  "Brands & marketing agencies",
-                  "Coaches & thought leaders",
-                  "Documentary & testimony creators",
-                ].map((item, i) => (
-                  <motion.div
-                    key={item}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.45, delay: i * 0.05 }}
-                  >
-                    <Card className="h-full">
-                      <CardContent className="p-3">
-                        <div className="flex items-start gap-3">
-                          <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                          <p className="font-medium">{item}</p>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
-              </div>
-
-              <p className="text-center text-muted-foreground leading-relaxed mt-8 max-w-3xl mx-auto">
-                If you’re tired of your content looking like everyone else’s —
-                Redbridge was built for you.
-              </p>
-            </div>
-          </div>
-        </section>
 
         {/* PACKAGES */}
         <section id="packages" className="py-16 sm:py-20 lg:py-24">
@@ -694,92 +815,10 @@ export default function HomePage() {
                 </motion.div>
               ))}
             </div>
-
-            <div className="max-w-5xl mx-auto">
-              <Card className="border-2 bg-muted/20">
-                <CardContent className="p-6 sm:p-8">
-                  <h3 className="text-xl font-bold mb-3">Why Our Pricing Works</h3>
-                  <div className="space-y-4 text-muted-foreground leading-relaxed">
-                    <p>
-                      Redbridge Podcast Studios is based in Bolton, on a
-                      professional industrial estate — allowing us to offer:
-                    </p>
-                    <ul className="space-y-2">
-                      {[
-                        "High-end production quality",
-                        "Competitive pricing",
-                        "Easy access and parking",
-                        "A calm, private recording and streaming environment",
-                      ].map((it) => (
-                        <li key={it} className="flex items-start gap-2">
-                          <Check className="h-4 w-4 text-primary shrink-0 mt-1" />
-                          <span>{it}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <p>Our goal isn’t one-off bookings.</p>
-                    <p>It’s long-term partnerships and repeat clients.</p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
           </div>
         </section>
 
-        {/* CONTACT / BOOKING */}
-        <section className="py-16 sm:py-20 lg:py-24">
-          <div className="container mx-auto px-4 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.98 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="max-w-4xl mx-auto text-center"
-            >
-              <Card className="overflow-hidden relative border-0">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#7D6BF5] via-[#E04C84] to-[#7D6BF5] p-[2px] rounded-lg">
-                  <div className="h-full w-full bg-background rounded-lg" />
-                </div>
-
-                <CardContent className="relative p-7 sm:p-10">
-                  <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-                    Book Your Session
-                  </h2>
-
-                  <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                    Whether you’re launching a new podcast, planning a live
-                    stream, upgrading an existing show, or producing branded
-                    content — we’ll help you choose the right setup.
-                  </p>
-
-                  <Link href="/book">
-                    <Button
-                      size="lg"
-                      className="bg-primary hover:bg-primary/90 text-primary-foreground text-base"
-                    >
-                      Book Your Studio Session
-                    </Button>
-                  </Link>
-
-                  <div className="mt-6 text-muted-foreground leading-relaxed">
-                    <p>Bolton / Greater Manchester</p>
-                    <p>Broadcast-quality podcast, interview &amp; live streaming production</p>
-                    <p className="mt-3">
-                      Email:{" "}
-                      <a
-                        className="underline underline-offset-4 hover:text-primary"
-                        href="mailto:hello@redbridgepodcaststudios.com"
-                      >
-                        hello@redbridgepodcaststudios.com
-                      </a>
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* FAQ (Accordion) */}
+        {/* FAQ */}
         <section className="py-16 sm:py-20 lg:py-24 bg-muted/30">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-4xl mx-auto">
@@ -789,7 +828,9 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 className="text-center mb-8"
               >
-                <h2 className="text-3xl lg:text-4xl font-bold mb-3">Frequently Asked Questions</h2>
+                <h2 className="text-3xl lg:text-4xl font-bold mb-3">
+                  Frequently Asked Questions
+                </h2>
                 <p className="text-muted-foreground">
                   Quick answers to the most common questions.
                 </p>
@@ -811,19 +852,6 @@ export default function HomePage() {
                   </Accordion>
                 </CardContent>
               </Card>
-
-              <div className="text-center mt-10 text-muted-foreground leading-relaxed">
-                <p className="font-medium text-foreground">Final Note</p>
-                <p className="mt-3">
-                  If you’re looking for the cheapest option, we’re probably not
-                  the right studio.
-                </p>
-                <p className="mt-2">
-                  If you’re looking for content that looks cinematic,
-                  professional, and unforgettable — welcome to Redbridge Podcast
-                  Studios.
-                </p>
-              </div>
             </div>
           </div>
         </section>

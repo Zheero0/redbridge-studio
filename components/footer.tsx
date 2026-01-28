@@ -1,31 +1,31 @@
 import Link from "next/link";
-import { Facebook, Instagram, Twitter, Music2, Youtube} from "lucide-react";
+import { FaXTwitter, FaInstagram, FaFacebookF, FaTiktok, FaYoutube } from "react-icons/fa6";
 
 const SOCIAL_LINKS = [
   {
     name: "X",
     href: "https://x.com/droneboy88?s=21&t=paIAi5HONBGWlxCmPlD9YQ",
-    icon: Twitter,
+    Icon: FaXTwitter,
   },
   {
     name: "Instagram",
     href: "https://www.instagram.com/redbridgepodcaststudio?igsh=eHRneGl6bW51OTds&utm_source=qr",
-    icon: Instagram,
+    Icon: FaInstagram,
   },
   {
     name: "Facebook",
     href: "https://www.facebook.com/share/17uZ9NMCWX/?mibextid=wwXIfr",
-    icon: Facebook,
+    Icon: FaFacebookF,
   },
   {
     name: "TikTok",
     href: "https://www.tiktok.com/@redbridgepodcast?_r=1&_t=ZN-93PwvL6u9Zb",
-    icon: Music2, // lucide doesn't have an official TikTok logo; this is a clean fallback
+    Icon: FaTiktok,
   },
-    {
+  {
     name: "YouTube",
     href: "https://youtube.com/@redbridgepodcaststudios?si=eq-z4VT9S_fYodU_",
-    icon: Youtube,
+    Icon: FaYoutube,
   },
 ] as const;
 
@@ -42,21 +42,19 @@ export function Footer() {
 
             {/* Social links */}
             <div className="mt-5 flex items-center gap-3">
-              {SOCIAL_LINKS.map((s) => {
-                const Icon = s.icon;
-                return (
-                  <a
-                    key={s.name}
-                    href={s.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={s.name}
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-background/15 bg-background/5 text-background/80 hover:text-background hover:bg-background/10 transition-colors"
-                  >
-                    <Icon className="h-5 w-5" />
-                  </a>
-                );
-              })}
+              {SOCIAL_LINKS.map((s) => (
+                <a
+                  key={s.name}
+                  href={s.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={s.name}
+                  title={s.name}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-background/15 bg-background/5 text-background/80 hover:text-background hover:bg-background/10 transition-colors"
+                >
+                  <s.Icon className="h-5 w-5" />
+                </a>
+              ))}
             </div>
           </div>
 
