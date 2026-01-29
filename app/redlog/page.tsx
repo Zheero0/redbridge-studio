@@ -72,12 +72,6 @@ export default function LoginPage() {
               {loading ? "Logging in..." : "Log in"}
             </Button>
 
-            <p className="text-xs text-muted-foreground text-center">
-              Need an account?{" "}
-              <Link className="underline underline-offset-4" href="/signup">
-                Create one
-              </Link>
-            </p>
           </form>
         </CardContent>
       </Card>
