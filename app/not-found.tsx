@@ -27,9 +27,6 @@ export default function NotFound() {
               <Link href="/">Go home</Link>
             </Button>
 
-            <Button asChild variant="outline" className="w-full sm:w-auto">
-              <Link href="/contact">Contact</Link>
-            </Button>
           </div>
 
           <div className="mt-6 rounded-md border bg-background px-3 py-2 text-xs text-muted-foreground">
